@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
-const Login = () => {
+const Expenses = () => {
   return (
     <View>
-      <Text>Login page</Text>
+      <Text>Expenses page</Text>
     </View>
   );
 };
 
-export default Login;
+export default Expenses;

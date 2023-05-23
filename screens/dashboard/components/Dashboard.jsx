@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 const Dashboard = () => {
   return (
     <View>
-      <Text>Login page</Text>
+      <Text>Dashboard page</Text>
     </View>
   );
 };
