@@ -17,7 +17,7 @@ export default function Navigation() {
   }
   return (
     <NavigationContainer>
-      {authState?.uid ? <AppStack /> : <AuthStack />}
+      {authState?.email ? <AppStack /> : <AuthStack />}
     </NavigationContainer>
   );
 }

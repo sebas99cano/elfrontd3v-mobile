@@ -8,6 +8,9 @@ const Profile = () => {
   return (
     <View>
       <Text>Profile page</Text>
+      <Text>{authState.email}</Text>
+      <Text>{authState.name}</Text>
+      <Text>{authState.id}</Text>
       <Button
         title="Log out"
         onPress={() => {

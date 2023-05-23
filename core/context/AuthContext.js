@@ -5,10 +5,13 @@ export const AuthContext = createContext({});
 const initialState = {
   isLoading: false,
   email: "",
-  uid: "",
-  providerId: "",
+  family_name: "",
+  given_name: "",
+  id: "",
+  locale: "",
   name: "",
-  photoURL: "",
+  picture: "",
+  verified_email: false,
 };
 
 const AuthReducer = (state = initialState, action) => {
