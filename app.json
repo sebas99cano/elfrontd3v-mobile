@@ -11,10 +11,11 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-
       "bundleIdentifier": "com.elfrontd3v.elfrontd3v"
     },
     "android": {
@@ -27,6 +28,10 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": ["@react-native-google-signin/google-signin"]
+    "extra": {
+      "eas": {
+        "projectId": "815e956a-006c-45fb-8eb4-0eb27e19d7da"
+      }
+    }
   }
 }
