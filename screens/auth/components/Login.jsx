@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -6,40 +6,15 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { AuthContext } from "../../../core/context/AuthContext";
 import { Colors as Colors } from "../../../constants/constants";
 import * as WebBrowser from "expo-web-browser";
-import * as Google from "expo-auth-session/providers/google";
-import { AuthConfig } from "../../../api/firebase/Config";
-import { signInWithGoogle } from "../../../api/firebase/Auth";
+import useLogin from "../hooks/useLogin";
 
 WebBrowser.maybeCompleteAuthSession();
 
 const Login = () => {
-  const [, authDispatch] = useContext(AuthContext);
-  const [request, response, promptAsync] = Google.useAuthRequest(
-    {
-      clientId: AuthConfig.webClientId,
-      iosClientId: AuthConfig.iosClientId,
-      androidClientId: AuthConfig.androidClientId,
-    },
-    { authorizationEndpoint: "https://www.googleapis.com/userinfo/v2/me" }
-  );
-
-  useEffect(() => {
-    if (response?.type === "success") {
-      signInWithGoogle(response.authentication, authDispatch);
-    }
-  }, [response]);
-
-  const validateLogin = () => {
-    authDispatch({
-      type: "LOGIN_SUCCESSFULLY",
-      payload: { email: "elfrontdev@gmail.com" },
-    });
-  };
-
+  const { userData, setUserData, navigation, request, promptAsync } =
+    useLogin();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>The Frontd3v</Text>
@@ -60,13 +35,7 @@ const Login = () => {
           onChangeText={(text) => setUserData({ ...userData, password: text })}
         />
       </View>
-      <TouchableOpacity
-        style={styles.loginBtn}
-        onPress={() => {
-          authDispatch({ type: "LOGIN" });
-          setTimeout(validateLogin, 2000);
-        }}
-      >
+      <TouchableOpacity style={styles.loginBtn} onPress={() => {}}>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -79,9 +48,7 @@ const Login = () => {
       <TouchableOpacity
         style={styles.loginBtn}
         disabled={!request}
-        onPress={() => {
-          promptAsync();
-        }}
+        onPress={promptAsync}
       >
         <Text style={styles.loginText}>Login with Google</Text>
       </TouchableOpacity>
