@@ -1,4 +1,14 @@
 export const Colors = {
+  primary: "#3E8C1F",
+  secondary: "#304F06",
+  alternative: "#BFA832",
+  lightBackground: "#255459",
+  backgroundColor: "#032326",
+  white: "#fff",
+  black: "#000",
+};
+
+export const Colors5 = {
   primary: "#F27777",
   secondary: "#D98B8B",
   alternative: "#177373",
@@ -22,5 +32,14 @@ export const Colors3 = {
   alternative: "#177373",
   lightBackground: "#081E58",
   backgroundColor: "#021549",
+  white: "#fff",
+};
+
+export const Colors4 = {
+  primary: "#BFA832",
+  secondary: "#D7FB6E",
+  alternative: "#177373",
+  lightBackground: "#255459",
+  backgroundColor: "#032326",
   white: "#fff",
 };
