@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors as Colors } from "../../../constants/constants";
 import * as WebBrowser from "expo-web-browser";
 import useLogin from "../hooks/useLogin";
@@ -39,19 +40,43 @@ const Login = () => {
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        style={styles.loginBtn}
         onPress={() => {
           navigation.navigate("SignUp");
         }}
       >
         <Text style={styles.loginText}>Sign up</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.loginBtn}
-        disabled={!request}
-        onPress={promptAsync}
-      >
-        <Text style={styles.loginText}>Login with Google</Text>
-      </TouchableOpacity>
+
+      <Text style={styles.orLoginWith}>Or, login with ...</Text>
+
+      <View style={styles.socialContainer}>
+        <TouchableOpacity
+          style={styles.socialButton}
+          disabled={!request}
+          onPress={promptAsync}
+        >
+          <MaterialCommunityIcons
+            name="google-plus"
+            size={24}
+            color={Colors.white}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.socialButton}>
+          <MaterialCommunityIcons
+            name="facebook"
+            size={24}
+            color={Colors.white}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.socialButton}>
+          <MaterialCommunityIcons
+            name="github"
+            size={24}
+            color={Colors.white}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -89,12 +114,28 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: 15,
   },
   loginText: {
     color: "white",
     fontSize: 16,
+  },
+  orLoginWith: {
+    marginTop: 20,
+    color: "white",
+    fontSize: 16,
+  },
+  socialContainer: {
+    width: "80%",
+    marginTop: 30,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  socialButton: {
+    backgroundColor: Colors.primary,
+    borderRadius: 10,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
   },
 });
 
