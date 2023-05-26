@@ -4,6 +4,7 @@ import { AuthConfig } from "../../../api/firebase/Config";
 import { signInWithGoogle } from "../../../api/firebase/Auth";
 import { AuthContext } from "../../../core/context/AuthContext";
 import { useNavigation } from "@react-navigation/native";
+
 const useLogin = () => {
   const [, authDispatch] = useContext(AuthContext);
   const [userData, setUserData] = useState({ email: "", password: "" });

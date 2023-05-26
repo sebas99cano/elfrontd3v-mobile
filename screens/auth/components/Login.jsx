@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Colors as Colors } from "../../../constants/constants";
+import { Colors6 as Colors } from "../../../constants/constants";
 import * as WebBrowser from "expo-web-browser";
 import useLogin from "../hooks/useLogin";
 
@@ -16,6 +16,7 @@ WebBrowser.maybeCompleteAuthSession();
 const Login = () => {
   const { userData, setUserData, navigation, request, promptAsync } =
     useLogin();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>The Frontd3v</Text>
@@ -54,7 +55,7 @@ const Login = () => {
         <TouchableOpacity
           style={styles.socialButton}
           disabled={!request}
-          onPress={promptAsync}
+          onPress={() => promptAsync()}
         >
           <MaterialCommunityIcons
             name="google-plus"
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   },
   inputView: {
     width: "80%",
-    backgroundColor: Colors.lightBackground,
+    backgroundColor: Colors.secondary,
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
   },
   orLoginWith: {
     marginTop: 20,
-    color: "white",
+    color: Colors.primary,
     fontSize: 16,
   },
   socialContainer: {

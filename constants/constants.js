@@ -43,3 +43,12 @@ export const Colors4 = {
   backgroundColor: "#032326",
   white: "#fff",
 };
+
+export const Colors6 = {
+  primary: "#595959",
+  secondary: "#8C8C8C",
+  alternative: "#0D0D0D",
+  lightBackground: "#8C8C8C",
+  backgroundColor: "#F2F2F2",
+  white: "#fff",
+};
